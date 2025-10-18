@@ -1,9 +1,14 @@
 package com.library.service;
 
 import com.library.model.Book;
+import com.library.model.Fine;
+import com.library.model.Loan;
 import com.library.model.User;
+import com.library.repository.BookRepository;
 import com.library.repository.UserRepository;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Main service for library operations
@@ -14,19 +19,139 @@ public class LibraryService {
     private AuthService authService;
     private BookService bookService;
     private UserRepository userRepository;
+    private LoanService loanService;
+    private FineService fineService;
+    private Scanner scanner;
 
-    /**
-     * Constructor that initializes all services
-     */
     public LibraryService() {
         this.authService = new AuthService();
-        this.bookService = new BookService();
         this.userRepository = new UserRepository();
+
+        // FIX: Create shared BookRepository first
+        BookRepository sharedBookRepository = new BookRepository();
+        this.bookService = new BookService(sharedBookRepository);
+
+        // FIX: Create FineService with the shared UserRepository
+        this.fineService = new FineService(userRepository);
+
+        // FIX: Create LoanService with shared BookRepository
+        this.loanService = new LoanService(fineService, userRepository, sharedBookRepository);
+
+        this.scanner = new Scanner(System.in);
     }
 
-    /**
-     * Displays all books in an organized format
-     */
+    // ADD THESE NEW METHODS
+    public void borrowBook() {
+        System.out.println("\n=== BORROW BOOK ===");
+
+        System.out.print("Enter User ID: ");
+        String userId = scanner.nextLine().trim();
+
+        System.out.print("Enter Book ISBN: ");
+        String bookIsbn = scanner.nextLine().trim();
+
+        User user = userRepository.findUserById(userId);
+        if (user == null) {
+            System.out.println("Error: User not found.");
+            return;
+        }
+
+        Loan loan = loanService.borrowBook(userId, bookIsbn, LocalDate.now());
+        if (loan != null) {
+            System.out.println("Book borrowed successfully!");
+            System.out.println("Due date: " + loan.getDueDate());
+        }
+    }
+
+    public void returnBook() {
+        System.out.println("\n=== RETURN BOOK ===");
+
+        System.out.print("Enter Loan ID: ");
+        String loanId = scanner.nextLine().trim();
+
+        boolean success = loanService.returnBook(loanId, LocalDate.now());
+        if (success) {
+            System.out.println("Book returned successfully!");
+        } else {
+            // FIX: Removed the confusing "Check Loan ID" message
+            // The LoanService.returnBook() method already provides specific error messages
+            // So we don't need to add another generic error message here
+        }
+    }
+
+    public void payFine() {
+        System.out.println("\n=== PAY FINE ===");
+
+        System.out.print("Enter User ID: ");
+        String userId = scanner.nextLine().trim();
+
+        fineService.displayUserFines(userId);
+
+        List<Fine> unpaidFines = fineService.getUserUnpaidFines(userId);
+        if (unpaidFines.isEmpty()) {
+            System.out.println("No unpaid fines found.");
+            return;
+        }
+
+        System.out.print("Enter Fine ID to pay: ");
+        String fineId = scanner.nextLine().trim();
+
+        System.out.print("Enter payment amount: ");
+        try {
+            double paymentAmount = Double.parseDouble(scanner.nextLine().trim());
+            fineService.payFine(fineId, paymentAmount);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Invalid payment amount.");
+        }
+    }
+
+    public void displayOverdueBooks() {
+        if (!authService.isLoggedIn()) {
+            System.out.println("Error: Admin login required to view overdue books.");
+            return;
+        }
+
+        List<Loan> overdueLoans = loanService.getOverdueLoans(LocalDate.now());
+        System.out.println("\n" + "=".repeat(100));
+        System.out.println("OVERDUE BOOKS");
+        System.out.println("=".repeat(100));
+
+        if (overdueLoans.isEmpty()) {
+            System.out.println("No overdue books found.");
+        } else {
+            for (Loan loan : overdueLoans) {
+                System.out.println(loan);
+            }
+        }
+        System.out.println("=".repeat(100));
+    }
+
+    public void displayUserLoans() {
+        System.out.println("\n=== USER LOANS ===");
+
+        System.out.print("Enter User ID: ");
+        String userId = scanner.nextLine().trim();
+
+        List<Loan> userLoans = loanService.getUserActiveLoans(userId);
+        System.out.println("\n" + "=".repeat(100));
+        System.out.println("ACTIVE LOANS FOR USER: " + userId);
+        System.out.println("=".repeat(100));
+
+        if (userLoans.isEmpty()) {
+            System.out.println("No active loans found.");
+        } else {
+            for (Loan loan : userLoans) {
+                System.out.println(loan);
+            }
+        }
+        System.out.println("=".repeat(100));
+    }
+
+    // ADD THESE GETTERS
+    public LoanService getLoanService() { return loanService; }
+    public FineService getFineService() { return fineService; }
+
+    // KEEP ALL EXISTING METHODS BELOW (displayAllBooks, displayAllUsers, getAuthService, getBookService)
     public void displayAllBooks() {
         List<Book> books = bookService.getAllBooks();
         System.out.println("\n" + "=".repeat(100));
@@ -43,9 +168,6 @@ public class LibraryService {
         System.out.println("=".repeat(100));
     }
 
-    /**
-     * Displays all users in an organized format (admin only)
-     */
     public void displayAllUsers() {
         if (!authService.isLoggedIn()) {
             System.out.println("Error: Admin login required to view users.");
@@ -67,7 +189,7 @@ public class LibraryService {
         System.out.println("=".repeat(80));
     }
 
-    // Getters for services
     public AuthService getAuthService() { return authService; }
     public BookService getBookService() { return bookService; }
+    public UserRepository getUserRepository() { return userRepository; } // Add this getter
 }

@@ -15,10 +15,13 @@ public class BookService {
     /**
      * Constructor that initializes the book repository
      */
-    public BookService() {
-        this.bookRepository = new BookRepository();
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
+    public BookService() {
+        this(new BookRepository());
+    }
     /**
      * Adds a new book to the library (admin only)
      * @param title the book title
@@ -54,5 +57,9 @@ public class BookService {
      */
     public List<Book> getAllBooks() {
         return bookRepository.getAllBooks();
+    }
+
+    public BookRepository getBookRepository() {
+        return bookRepository;
     }
 }

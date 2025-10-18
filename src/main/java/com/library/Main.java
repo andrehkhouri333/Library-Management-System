@@ -1,4 +1,4 @@
-package com.library;git status
+package com.library;
 
 import com.library.model.Book;
 import com.library.service.LibraryService;
@@ -24,8 +24,12 @@ public class Main {
             System.out.println("\n=== MAIN MENU ===");
             System.out.println("1. View All Books");
             System.out.println("2. Search Books");
-            System.out.println("3. Admin Login");
-            System.out.println("4. Exit");
+            System.out.println("3. Borrow Book");
+            System.out.println("4. Return Book");
+            System.out.println("5. Pay Fine");
+            System.out.println("6. View My Loans");
+            System.out.println("7. Admin Login");
+            System.out.println("8. Exit");
             System.out.print("Choose an option: ");
 
             int choice = getIntInput();
@@ -38,9 +42,21 @@ public class Main {
                     searchBooks();
                     break;
                 case 3:
-                    adminLogin();
+                    libraryService.borrowBook();
                     break;
                 case 4:
+                    libraryService.returnBook();
+                    break;
+                case 5:
+                    libraryService.payFine();
+                    break;
+                case 6:
+                    libraryService.displayUserLoans();
+                    break;
+                case 7:
+                    adminLogin();
+                    break;
+                case 8:
                     System.out.println("Thank you for using Library Management System. Goodbye!");
                     return;
                 default:
@@ -49,6 +65,46 @@ public class Main {
         }
     }
 
+    private static void showAdminMenu() {
+        while (libraryService.getAuthService().isLoggedIn()) {
+            System.out.println("\n=== ADMIN MENU ===");
+            System.out.println("1. View All Books");
+            System.out.println("2. View All Users");
+            System.out.println("3. Add New Book");
+            System.out.println("4. Search Books");
+            System.out.println("5. View Overdue Books");
+            System.out.println("6. Logout");
+            System.out.print("Choose an option: ");
+
+            int choice = getIntInput();
+
+            switch (choice) {
+                case 1:
+                    libraryService.displayAllBooks();
+                    break;
+                case 2:
+                    libraryService.displayAllUsers();
+                    break;
+                case 3:
+                    addNewBook();
+                    break;
+                case 4:
+                    searchBooks();
+                    break;
+                case 5:
+                    libraryService.displayOverdueBooks();
+                    break;
+                case 6:
+                    libraryService.getAuthService().logout();
+                    System.out.println("Logged out successfully.");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        }
+    }
+
+    // KEEP ALL EXISTING METHODS BELOW (searchBooks, adminLogin, addNewBook, getIntInput)
     private static void searchBooks() {
         System.out.print("\nEnter search query (title, author, or ISBN): ");
         String query = scanner.nextLine().trim();
@@ -86,41 +142,6 @@ public class Main {
             showAdminMenu();
         } else {
             System.out.println("Login failed! Invalid credentials.");
-        }
-    }
-
-    private static void showAdminMenu() {
-        while (libraryService.getAuthService().isLoggedIn()) {
-            System.out.println("\n=== ADMIN MENU ===");
-            System.out.println("1. View All Books");
-            System.out.println("2. View All Users");
-            System.out.println("3. Add New Book");
-            System.out.println("4. Search Books");
-            System.out.println("5. Logout");
-            System.out.print("Choose an option: ");
-
-            int choice = getIntInput();
-
-            switch (choice) {
-                case 1:
-                    libraryService.displayAllBooks();
-                    break;
-                case 2:
-                    libraryService.displayAllUsers();
-                    break;
-                case 3:
-                    addNewBook();
-                    break;
-                case 4:
-                    searchBooks();
-                    break;
-                case 5:
-                    libraryService.getAuthService().logout();
-                    System.out.println("Logged out successfully.");
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again.");
-            }
         }
     }
 

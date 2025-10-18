@@ -62,4 +62,31 @@ public class BookRepository {
     public List<Book> getAllBooks() {
         return new ArrayList<>(books);
     }
+
+    /**
+     * Finds a book by ISBN
+     * @param isbn the book ISBN
+     * @return the book, or null if not found
+     */
+    public Book findBookByIsbn(String isbn) {
+        return books.stream()
+                .filter(book -> book.getIsbn().equals(isbn))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
+     * Updates a book's availability status
+     * @param isbn the book ISBN
+     * @param available the availability status
+     * @return true if successful, false otherwise
+     */
+    public boolean updateBookAvailability(String isbn, boolean available) {
+        Book book = findBookByIsbn(isbn);
+        if (book != null) {
+            book.setAvailable(available);
+            return true;
+        }
+        return false;
+    }
 }
