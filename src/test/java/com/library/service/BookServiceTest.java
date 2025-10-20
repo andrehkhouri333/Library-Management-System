@@ -37,6 +37,9 @@ class BookServiceTest {
         List<Book> results = bookService.searchBooks("Test Book");
         assertFalse(results.isEmpty());
         assertEquals("Test Book", results.get(0).getTitle());
+        assertEquals("Test Author", results.get(0).getAuthor());
+        assertEquals("1234567890", results.get(0).getIsbn());
+        assertTrue(results.get(0).isAvailable());
     }
 
     @Test
@@ -44,6 +47,7 @@ class BookServiceTest {
         List<Book> results = bookService.searchBooks("Great Gatsby");
         assertFalse(results.isEmpty());
         assertEquals("The Great Gatsby", results.get(0).getTitle());
+        assertEquals("F. Scott Fitzgerald", results.get(0).getAuthor());
     }
 
     @Test
@@ -51,6 +55,7 @@ class BookServiceTest {
         List<Book> results = bookService.searchBooks("Fitzgerald");
         assertFalse(results.isEmpty());
         assertEquals("F. Scott Fitzgerald", results.get(0).getAuthor());
+        assertEquals("The Great Gatsby", results.get(0).getTitle());
     }
 
     @Test
@@ -58,6 +63,7 @@ class BookServiceTest {
         List<Book> results = bookService.searchBooks("978-0743273565");
         assertFalse(results.isEmpty());
         assertEquals("978-0743273565", results.get(0).getIsbn());
+        assertEquals("The Great Gatsby", results.get(0).getTitle());
     }
 
     @Test
@@ -67,9 +73,26 @@ class BookServiceTest {
     }
 
     @Test
+    void testSearchBooksCaseInsensitive() {
+        List<Book> results = bookService.searchBooks("gReAt gAtSbY");
+        assertFalse(results.isEmpty());
+        assertEquals("The Great Gatsby", results.get(0).getTitle());
+    }
+
+    @Test
     void testGetAllBooks() {
         List<Book> allBooks = bookService.getAllBooks();
         assertFalse(allBooks.isEmpty());
         assertTrue(allBooks.size() >= 7); // We have 7 sample books
+    }
+
+    @Test
+    void testNewBookIsAvailable() {
+        authService.login("admin", "admin123");
+        bookService.addBook("Available Test Book", "Test Author", "1111111111", authService);
+
+        List<Book> results = bookService.searchBooks("Available Test Book");
+        assertFalse(results.isEmpty());
+        assertTrue(results.get(0).isAvailable());
     }
 }

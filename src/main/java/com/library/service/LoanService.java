@@ -55,9 +55,20 @@ public class LoanService {
             return null;
         }
 
+        // NEW CHECK: Check if user has any overdue books that need to be returned
+        List<Loan> userActiveLoans = getUserActiveLoans(userId);
+        boolean hasOverdueBooks = userActiveLoans.stream()
+                .anyMatch(Loan::isOverdue);
+
+        if (hasOverdueBooks) {
+            System.out.println("Error: User cannot borrow new books. There are overdue books that need to be returned first.");
+            System.out.println("Please return all overdue books before borrowing new ones.");
+            return null;
+        }
+
         // FIX: Double-check the user's canBorrow flag and update if needed
-        if (!user.canBorrow() && unpaidFines == 0) {
-            // If fines are paid but user flag is still false, update it
+        if (!user.canBorrow() && unpaidFines == 0 && !hasOverdueBooks) {
+            // If fines are paid, no overdue books, but user flag is still false, update it
             user.setCanBorrow(true);
             userRepository.updateUser(user);
             System.out.println("User borrowing status updated. User can now borrow books.");
@@ -112,7 +123,6 @@ public class LoanService {
         if (unpaidFines > 0) {
             System.out.println("❌ Error: User has unpaid fines of $" + unpaidFines);
             System.out.println("Please pay all fines before returning books.");
-            // FIX: Remove the confusing "Check Loan ID" message
             return false;
         }
 
@@ -126,10 +136,6 @@ public class LoanService {
                 user.removeLoan(loanId);
                 userRepository.updateUser(user);
             }
-
-            // FIX: REMOVED overdue fine application
-            // Users only get fines for overdue books if they try to return without paying existing fines
-            // Once they pay existing fines, they can return overdue books without additional fines
 
             System.out.println("✅ Book returned successfully!");
         }

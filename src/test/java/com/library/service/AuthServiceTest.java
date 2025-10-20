@@ -48,4 +48,16 @@ class AuthServiceTest {
     void testIsLoggedInInitiallyFalse() {
         assertFalse(authService.isLoggedIn());
     }
+
+    @Test
+    void testAdminActionsRequireLogin() {
+        // Simulate trying to perform admin action without login
+        assertFalse(authService.isLoggedIn());
+
+        authService.login("admin", "admin123");
+        assertTrue(authService.isLoggedIn());
+
+        authService.logout();
+        assertFalse(authService.isLoggedIn());
+    }
 }

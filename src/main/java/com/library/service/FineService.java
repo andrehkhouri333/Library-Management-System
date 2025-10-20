@@ -20,6 +20,7 @@ public class FineService {
         this.userRepository = userRepository; // Use the shared UserRepository instance
     }
 
+
     public FineService() {
         this(new UserRepository());
     }
