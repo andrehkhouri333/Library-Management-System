@@ -5,10 +5,13 @@ import com.library.model.Fine;
 import com.library.model.Loan;
 import com.library.model.User;
 import com.library.repository.BookRepository;
+import com.library.repository.LoanRepository;
 import com.library.repository.UserRepository;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
+
+import static com.library.Main.getIntInput;
 
 /**
  * Main service for library operations
@@ -21,6 +24,7 @@ public class LibraryService {
     private UserRepository userRepository;
     private LoanService loanService;
     private FineService fineService;
+    private ReminderService reminderService;
     private Scanner scanner;
 
     public LibraryService() {
@@ -37,8 +41,68 @@ public class LibraryService {
         // FIX: Create LoanService with shared BookRepository
         this.loanService = new LoanService(fineService, userRepository, sharedBookRepository);
 
+        EmailService emailService = new EmailService();
+        LoanRepository loanRepository = this.loanService.getLoanRepository();
+        this.reminderService = new ReminderService(emailService, loanRepository, userRepository);
+
         this.scanner = new Scanner(System.in);
     }
+
+    public void sendOverdueReminders() {
+        if (!authService.isLoggedIn()) {
+            System.out.println("Error: Admin login required to send reminders.");
+            return;
+        }
+
+        System.out.println("\n=== SEND OVERDUE REMINDERS ===");
+        System.out.println("1. Send reminder to specific user");
+        System.out.println("2. Cancel");
+        System.out.print("Choose an option: ");
+
+        int choice = getIntInput();
+        switch (choice) {
+            case 1:
+                sendReminderToSpecificUser();
+                break;
+            case 2:
+                System.out.println("Operation cancelled.");
+                break;
+            default:
+                System.out.println("Invalid option.");
+        }
+    }
+
+    private void sendReminderToSpecificUser() {
+        System.out.print("Enter User ID: ");
+        String userId = scanner.nextLine().trim();
+
+        // Get user's overdue books count
+        List<Loan> userActiveLoans = loanService.getUserActiveLoans(userId);
+        long overdueCount = userActiveLoans.stream()
+                .filter(Loan::isOverdue)
+                .count();
+
+        if (overdueCount == 0) {
+            System.out.println("User " + userId + " has no overdue books.");
+            return;
+        }
+
+        System.out.println("User " + userId + " has " + overdueCount + " overdue book(s).");
+        System.out.print("Send reminder? (y/n): ");
+        String confirmation = scanner.nextLine().trim().toLowerCase();
+
+        if (confirmation.equals("y") || confirmation.equals("yes")) {
+            reminderService.sendOverdueReminderToUser(userId, (int) overdueCount);
+            System.out.println("Reminder sent successfully!");
+        } else {
+            System.out.println("Operation cancelled.");
+        }
+    }
+
+    public ReminderService getReminderService() {
+        return reminderService;
+    }
+
 
     // ADD THESE NEW METHODS
     public void borrowBook() {
@@ -193,3 +257,4 @@ public class LibraryService {
     public BookService getBookService() { return bookService; }
     public UserRepository getUserRepository() { return userRepository; } // Add this getter
 }
+

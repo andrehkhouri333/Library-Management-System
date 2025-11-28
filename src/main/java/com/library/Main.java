@@ -73,7 +73,8 @@ public class Main {
             System.out.println("3. Add New Book");
             System.out.println("4. Search Books");
             System.out.println("5. View Overdue Books");
-            System.out.println("6. Logout");
+            System.out.println("6. Send Overdue Reminders"); // NEW OPTION
+            System.out.println("7. Logout");
             System.out.print("Choose an option: ");
 
             int choice = getIntInput();
@@ -94,7 +95,10 @@ public class Main {
                 case 5:
                     libraryService.displayOverdueBooks();
                     break;
-                case 6:
+                case 6: // NEW CASE
+                    libraryService.sendOverdueReminders();
+                    break;
+                case 7:
                     libraryService.getAuthService().logout();
                     System.out.println("Logged out successfully.");
                     break;
@@ -164,7 +168,7 @@ public class Main {
         libraryService.getBookService().addBook(title, author, isbn, libraryService.getAuthService());
     }
 
-    private static int getIntInput() {
+    public static int getIntInput() {
         try {
             return Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
