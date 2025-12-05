@@ -5,11 +5,11 @@ package com.library.model;
  * @author Library Team
  * @version 1.0
  */
-public class Book {
-    private String title;
-    private String author;
-    private String isbn;
-    private boolean available;
+public class Book extends BaseMedia {
+    private static final String MEDIA_TYPE = "BOOK";
+    private static final int LOAN_PERIOD_DAYS = 28;
+    private static final double DAILY_FINE_RATE = 0.25; // $0.25 per day (10 NIS ≈ $2.50 for 10 days)
+    private static final double OVERDUE_FINE = 10.00; // $10 flat fine for overdue book
 
     /**
      * Constructor for creating a new book
@@ -18,28 +18,24 @@ public class Book {
      * @param isbn the ISBN of the book
      */
     public Book(String title, String author, String isbn) {
-        this.title = title;
-        this.author = author;
-        this.isbn = isbn;
-        this.available = true;
+        super(title, author, isbn, MEDIA_TYPE, LOAN_PERIOD_DAYS, DAILY_FINE_RATE);
     }
 
-    // Getters and setters
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    // Convenience getter for ISBN (alias for getIdentifier())
+    public String getIsbn() {
+        return getIdentifier();
+    }
 
-    public String getAuthor() { return author; }
-    public void setAuthor(String author) { this.author = author; }
+    // Convenience setter for ISBN (alias for setIdentifier())
+    public void setIsbn(String isbn) {
+        setIdentifier(isbn);
+    }
 
-    public String getIsbn() { return isbn; }
-    public void setIsbn(String isbn) { this.isbn = isbn; }
-
-    public boolean isAvailable() { return available; }
-    public void setAvailable(boolean available) { this.available = available; }
-
-    @Override
-    public String toString() {
-        return String.format("Title: %-30s | Author: %-20s | ISBN: %-15s | Available: %s",
-                title, author, isbn, available ? "Yes" : "No");
+    /**
+     * Gets the flat overdue fine for books
+     * @return $10.00 fine
+     */
+    public double getOverdueFine() {
+        return OVERDUE_FINE;
     }
 }

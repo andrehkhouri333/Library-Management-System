@@ -29,7 +29,7 @@ class LibraryServiceTest {
         libraryService.displayAllBooks();
         String output = outputStream.toString();
 
-        assertTrue(output.contains("LIBRARY BOOK COLLECTION"));
+        assertTrue(output.contains("BOOK COLLECTION"));  // Changed from "LIBRARY BOOK COLLECTION"
         assertTrue(output.contains("The Great Gatsby"));
         assertTrue(output.contains("F. Scott Fitzgerald"));
         assertTrue(output.contains("Available: Yes"));

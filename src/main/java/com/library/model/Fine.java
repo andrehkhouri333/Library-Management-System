@@ -8,16 +8,23 @@ package com.library.model;
 public class Fine {
     private String fineId;
     private String userId;
+    private String loanId; // NEW: Track which loan caused this fine
     private double amount;
     private double paidAmount;
     private boolean isPaid;
 
-    public Fine(String fineId, String userId, double amount) {
+    public Fine(String fineId, String userId, double amount, String loanId) {
         this.fineId = fineId;
         this.userId = userId;
+        this.loanId = loanId;
         this.amount = amount;
         this.paidAmount = 0.0;
         this.isPaid = false;
+    }
+
+    // For backward compatibility
+    public Fine(String fineId, String userId, double amount) {
+        this(fineId, userId, amount, null);
     }
 
     // Getters and setters
@@ -26,6 +33,9 @@ public class Fine {
 
     public String getUserId() { return userId; }
     public void setUserId(String userId) { this.userId = userId; }
+
+    public String getLoanId() { return loanId; } // NEW GETTER
+    public void setLoanId(String loanId) { this.loanId = loanId; } // NEW SETTER
 
     public double getAmount() { return amount; }
     public void setAmount(double amount) { this.amount = amount; }
@@ -73,8 +83,8 @@ public class Fine {
 
     @Override
     public String toString() {
-        return String.format("Fine ID: %-8s | User: %-6s | Amount: $%-6.2f | Paid: $%-6.2f | Remaining: $%-6.2f | Status: %s",
-                fineId, userId, amount, paidAmount, getRemainingBalance(), isPaid ? "Paid" : "Unpaid");
+        return String.format("Fine ID: %-8s | User: %-6s | Loan: %-6s | Amount: $%-6.2f | Paid: $%-6.2f | Remaining: $%-6.2f | Status: %s",
+                fineId, userId, loanId != null ? loanId : "N/A", amount, paidAmount, getRemainingBalance(), isPaid ? "Paid" : "Unpaid");
     }
 
     /**

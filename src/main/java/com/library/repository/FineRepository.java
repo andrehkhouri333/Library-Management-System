@@ -25,15 +25,21 @@ public class FineRepository {
      */
     private void initializeSampleFines() {
         // Create fines for two users
-        createFine("U002", 25.0); // Emma Johnson has $25 fine
-        createFine("U004", 40.0); // Sarah Davis has $40 fine
+        createFine("U002", 20.0, "L0001"); // Emma Johnson has $25 fine for loan L0001
+        createFine("U002", 20.0, "L0004");
+        createFine("U004", 20.0, "L0002"); // Sarah Davis has $40 fine for loan L0002
     }
 
-    public Fine createFine(String userId, double amount) {
+    public Fine createFine(String userId, double amount, String loanId) {
         String fineId = "F" + String.format("%04d", fineCounter++);
-        Fine newFine = new Fine(fineId, userId, amount);
+        Fine newFine = new Fine(fineId, userId, amount, loanId);
         fines.add(newFine);
         return newFine;
+    }
+
+    // Overloaded method for backward compatibility
+    public Fine createFine(String userId, double amount) {
+        return createFine(userId, amount, null);
     }
 
     public List<Fine> findFinesByUser(String userId) {
@@ -65,6 +71,16 @@ public class FineRepository {
     public Fine findFineById(String fineId) {
         return fines.stream()
                 .filter(fine -> fine.getFineId().equals(fineId))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
+     * Finds a fine by loan ID
+     */
+    public Fine findFineByLoanId(String loanId) {
+        return fines.stream()
+                .filter(fine -> loanId.equals(fine.getLoanId()))
                 .findFirst()
                 .orElse(null);
     }

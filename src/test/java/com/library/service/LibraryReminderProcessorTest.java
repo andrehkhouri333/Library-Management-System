@@ -28,6 +28,6 @@ class LibraryReminderProcessorTest {
         verify(mockEmailService, times(1))
                 .sendEmail(eq("andrehkhouri333@gmail.com"),
                         eq("Overdue Book Reminder"),
-                        contains("You have 3 overdue book(s)"));
+                        contains("You have 3 overdue item(s)"));  // Changed from "book(s)" to "item(s)"
     }
 }

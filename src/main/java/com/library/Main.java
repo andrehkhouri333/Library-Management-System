@@ -1,8 +1,6 @@
 package com.library;
 
-import com.library.model.Book;
 import com.library.service.LibraryService;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -22,41 +20,53 @@ public class Main {
     private static void showMainMenu() {
         while (true) {
             System.out.println("\n=== MAIN MENU ===");
-            System.out.println("1. View All Books");
-            System.out.println("2. Search Books");
-            System.out.println("3. Borrow Book");
-            System.out.println("4. Return Book");
-            System.out.println("5. Pay Fine");
-            System.out.println("6. View My Loans");
-            System.out.println("7. Admin Login");
-            System.out.println("8. Exit");
+            System.out.println("1. View All Media");
+            System.out.println("2. View Books Only");
+            System.out.println("3. View CDs Only");
+            System.out.println("4. Search Media");
+            System.out.println("5. Borrow Media");
+            System.out.println("6. Return Media");
+            System.out.println("7. Pay Fine");
+            System.out.println("8. View My Loans");
+            System.out.println("9. View Mixed Media Overdue Report"); // NEW OPTION
+            System.out.println("10. Admin Login");
+            System.out.println("11. Exit"); // Changed from 10 to 11
             System.out.print("Choose an option: ");
 
             int choice = getIntInput();
 
             switch (choice) {
                 case 1:
-                    libraryService.displayAllBooks();
+                    libraryService.displayAllMedia();
                     break;
                 case 2:
-                    searchBooks();
+                    libraryService.displayAllBooks();
                     break;
                 case 3:
-                    libraryService.borrowBook();
+                    libraryService.displayAllCDs();
                     break;
                 case 4:
-                    libraryService.returnBook();
+                    libraryService.searchMedia();
                     break;
                 case 5:
-                    libraryService.payFine();
+                    libraryService.borrowMedia();
                     break;
                 case 6:
-                    libraryService.displayUserLoans();
+                    libraryService.returnBook();
                     break;
                 case 7:
-                    adminLogin();
+                    libraryService.payFine();
                     break;
                 case 8:
+                    libraryService.displayUserLoans();
+                    break;
+                case 9: // NEW: Mixed media overdue report
+                    libraryService.displayMixedMediaOverdueReport();
+                    break;
+                case 10:
+                    adminLogin();
+                    break;
+                case 11:
                     System.out.println("Thank you for using Library Management System. Goodbye!");
                     return;
                 default:
@@ -68,30 +78,30 @@ public class Main {
     private static void showAdminMenu() {
         while (libraryService.getAuthService().isLoggedIn()) {
             System.out.println("\n=== ADMIN MENU ===");
-            System.out.println("1. View All Books");
+            System.out.println("1. View All Media");
             System.out.println("2. View All Users");
-            System.out.println("3. Add New Book");
-            System.out.println("4. Search Books");
-            System.out.println("5. View Overdue Books");
+            System.out.println("3. Add New Media");
+            System.out.println("4. Search Media");
+            System.out.println("5. View Overdue Items");
             System.out.println("6. Send Overdue Reminders");
-            System.out.println("7. User Management"); // Renumbered from 8 to 7
-            System.out.println("8. Logout"); // Renumbered from 9 to 8
+            System.out.println("7. User Management");
+            System.out.println("8. Logout");
             System.out.print("Choose an option: ");
 
             int choice = getIntInput();
 
             switch (choice) {
                 case 1:
-                    libraryService.displayAllBooks();
+                    libraryService.displayAllMedia();
                     break;
                 case 2:
                     libraryService.displayAllUsers();
                     break;
                 case 3:
-                    addNewBook();
+                    libraryService.addNewMedia();
                     break;
                 case 4:
-                    searchBooks();
+                    libraryService.searchMedia();
                     break;
                 case 5:
                     libraryService.displayOverdueBooks();
@@ -99,10 +109,10 @@ public class Main {
                 case 6:
                     libraryService.sendOverdueReminders();
                     break;
-                case 7: // Now User Management (was Manage Borrowing Rules)
+                case 7:
                     libraryService.manageUsers();
                     break;
-                case 8: // Now Logout (was User Management)
+                case 8:
                     libraryService.getAuthService().logout();
                     System.out.println("Logged out successfully.");
                     break;
@@ -110,32 +120,6 @@ public class Main {
                     System.out.println("Invalid option. Please try again.");
             }
         }
-    }
-
-    // ... rest of existing methods remain the same ...
-    private static void searchBooks() {
-        System.out.print("\nEnter search query (title, author, or ISBN): ");
-        String query = scanner.nextLine().trim();
-
-        if (query.isEmpty()) {
-            System.out.println("Search query cannot be empty.");
-            return;
-        }
-
-        List<Book> results = libraryService.getBookService().searchBooks(query);
-
-        System.out.println("\n" + "=".repeat(100));
-        System.out.println("SEARCH RESULTS for: '" + query + "'");
-        System.out.println("=".repeat(100));
-
-        if (results.isEmpty()) {
-            System.out.println("No books found matching your search.");
-        } else {
-            for (int i = 0; i < results.size(); i++) {
-                System.out.println((i + 1) + ". " + results.get(i));
-            }
-        }
-        System.out.println("=".repeat(100));
     }
 
     private static void adminLogin() {
@@ -151,25 +135,6 @@ public class Main {
         } else {
             System.out.println("Login failed! Invalid credentials.");
         }
-    }
-
-    private static void addNewBook() {
-        System.out.println("\n=== ADD NEW BOOK ===");
-        System.out.print("Enter book title: ");
-        String title = scanner.nextLine().trim();
-
-        System.out.print("Enter author: ");
-        String author = scanner.nextLine().trim();
-
-        System.out.print("Enter ISBN: ");
-        String isbn = scanner.nextLine().trim();
-
-        if (title.isEmpty() || author.isEmpty() || isbn.isEmpty()) {
-            System.out.println("Error: All fields are required.");
-            return;
-        }
-
-        libraryService.getBookService().addBook(title, author, isbn, libraryService.getAuthService());
     }
 
     public static int getIntInput() {

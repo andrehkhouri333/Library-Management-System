@@ -24,6 +24,7 @@ class BookTest {
     void testBookSetters() {
         Book book = new Book("Initial Title", "Initial Author", "1111111111");
 
+        // Use the setter methods that exist
         book.setTitle("Updated Title");
         book.setAuthor("Updated Author");
         book.setIsbn("9999999999");
@@ -60,5 +61,11 @@ class BookTest {
         // Set back to available
         book.setAvailable(true);
         assertTrue(book.isAvailable());
+    }
+
+    @Test
+    void testBookOverdueFine() {
+        Book book = new Book("Test Book", "Test Author", "1234567890");
+        assertEquals(10.00, book.getOverdueFine(), 0.001);
     }
 }

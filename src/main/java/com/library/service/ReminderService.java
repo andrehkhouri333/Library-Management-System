@@ -58,7 +58,7 @@ public class ReminderService {
         String userEmail = "andrehkhouri333@gmail.com"; // Fixed email as requested
         String subject = "Overdue Book Reminder";
         String body = String.format(
-                "Dear %s,\n\nYou have %d overdue book(s). Please return them as soon as possible to avoid additional fines.\n\nBest regards,\nAn Najah Library System",
+                "Dear %s,\n\nYou have %d overdue item(s). Please return them as soon as possible to avoid additional fines.\n\nBest regards,\nAn Najah Library System",
                 user.getName(), overdueCount
         );
 
@@ -79,7 +79,7 @@ public class ReminderService {
     public void sendOverdueReminder(String email, String userName, int overdueCount) {
         String subject = "Overdue Book Reminder";
         String body = String.format(
-                "Dear %s,\n\nYou have %d overdue book(s). Please return them as soon as possible to avoid additional fines.\n\nBest regards,\nAn Najah Library System",
+                "Dear %s,\n\nYou have %d overdue item(s). Please return them as soon as possible to avoid additional fines.\n\nBest regards,\nAn Najah Library System",
                 userName, overdueCount
         );
 

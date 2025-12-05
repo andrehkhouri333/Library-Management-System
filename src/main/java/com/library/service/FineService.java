@@ -16,6 +16,70 @@ public class FineService {
     private UserRepository userRepository;
     private LoanService loanService;
 
+    /**
+     * Gets fine breakdown by media type
+     * @param userId the user ID
+     * @return formatted string with fine breakdown
+     */
+    public String getFineBreakdownByMediaType(String userId) {
+        List<Fine> fines = getUserFines(userId);
+
+        if (fines.isEmpty()) {
+            return "✅ No fines found.";
+        }
+
+        StringBuilder breakdown = new StringBuilder();
+        breakdown.append("\n📊 FINE BREAKDOWN BY MEDIA TYPE:");
+        breakdown.append("\n").append("-".repeat(50));
+
+        // Separate fines by media type
+        double bookFines = 0;
+        double cdsFines = 0;
+        int bookCount = 0;
+        int cdCount = 0;
+
+        for (Fine fine : fines) {
+            if (!fine.isPaid()) {
+                // Determine media type from loan
+                if (loanService != null && fine.getLoanId() != null) {
+                    com.library.model.Loan loan = loanService.getLoanRepository().findLoanById(fine.getLoanId());
+                    if (loan != null) {
+                        if ("BOOK".equals(loan.getMediaType())) {
+                            bookFines += fine.getRemainingBalance();
+                            bookCount++;
+                        } else if ("CD".equals(loan.getMediaType())) {
+                            cdsFines += fine.getRemainingBalance();
+                            cdCount++;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (bookCount > 0) {
+            breakdown.append(String.format("\n📚 BOOK Fines: %d items | Total: $%.2f", bookCount, bookFines));
+        }
+
+        if (cdCount > 0) {
+            breakdown.append(String.format("\n💿 CD Fines: %d items | Total: $%.2f", cdCount, cdsFines));
+        }
+
+        double total = bookFines + cdsFines;
+        breakdown.append("\n").append("-".repeat(50));
+        breakdown.append(String.format("\n💰 TOTAL UNPAID FINES: $%.2f", total));
+
+        return breakdown.toString();
+    }
+
+    /**
+     * Clean up duplicate fines (one-time use)
+     */
+    public void cleanupDuplicateFines() {
+        System.out.println("Cleaning up duplicate fines...");
+        // This would remove duplicate fines for the same loan
+        // For now, just a placeholder
+    }
+
     // Primary constructor with all dependencies
     public FineService(UserRepository userRepository, LoanService loanService) {
         this.fineRepository = new FineRepository();
@@ -44,12 +108,71 @@ public class FineService {
         this.loanService = loanService;
     }
 
-    public Fine applyFine(String userId, double amount, String reason) {
-        if (amount <= 0) {
-            System.out.println("Error: Fine amount must be positive.");
+    /**
+     * Apply flat fine based on media type
+     */
+    public Fine applyFine(String userId, String reason, String loanId) {
+        if (loanService == null) {
+            System.out.println("❌ Error: Loan service not available.");
             return null;
         }
 
+        // Get the loan
+        com.library.model.Loan loan = loanService.getLoanRepository().findLoanById(loanId);
+        if (loan == null) {
+            System.out.println("❌ Error: Loan not found.");
+            return null;
+        }
+
+        // Calculate flat fine based on media type
+        double fineAmount = 0.0;
+        if ("BOOK".equals(loan.getMediaType())) {
+            fineAmount = 10.00; // $10 for books
+        } else if ("CD".equals(loan.getMediaType())) {
+            fineAmount = 20.00; // $20 for CDs
+        }
+
+        if (fineAmount <= 0) {
+            System.out.println("❌ Error: Invalid fine amount.");
+            return null;
+        }
+
+        // Check if fine already exists for this loan
+        Fine existingFine = fineRepository.findFineByLoanId(loanId);
+        if (existingFine != null) {
+            System.out.println("⚠️ Fine already exists for loan " + loanId + ": " + existingFine.getFineId());
+            // Update the amount if it's different
+            if (existingFine.getAmount() != fineAmount) {
+                existingFine.setAmount(fineAmount);
+                System.out.println("⚠️ Updated fine amount to $" + fineAmount);
+            }
+            return existingFine;
+        }
+
+        Fine fine = fineRepository.createFine(userId, fineAmount, loanId);
+        if (fine != null) {
+            // Update user's borrowing ability
+            User user = userRepository.findUserById(userId);
+            if (user != null) {
+                user.setCanBorrow(false);
+                userRepository.updateUser(user);
+            }
+            System.out.println("Fine applied: $" + fineAmount + " for " + reason);
+        }
+        return fine;
+    }
+
+    /**
+     * Apply a fine with amount (for backward compatibility)
+     */
+    public Fine applyFine(String userId, double amount, String reason) {
+        // Validate amount
+        if (amount <= 0) {
+            System.out.println("❌ Error: Fine amount must be positive.");
+            return null;  // Return null for invalid amounts
+        }
+
+        // For backward compatibility - create fine without loan ID
         Fine fine = fineRepository.createFine(userId, amount);
         if (fine != null) {
             // Update user's borrowing ability
@@ -75,15 +198,30 @@ public class FineService {
             return false;
         }
 
-        // NEW CHECK: User cannot pay fines if they have overdue books
         Fine fine = fineRepository.findFineById(fineId);
-        if (fine != null) {
-            String userId = fine.getUserId();
-            boolean hasOverdueBooks = loanService.hasOverdueBooks(userId);
+        if (fine == null) {
+            System.out.println("❌ Error: Fine not found.");
+            return false;
+        }
 
-            if (hasOverdueBooks) {
-                System.out.println("❌ Error: Cannot pay fines. User has overdue books that must be returned first.");
-                System.out.println("Please return all overdue books before paying fines.");
+        // Check if the fine is already paid
+        if (fine.isPaid()) {
+            System.out.println("❌ Error: Fine " + fineId + " is already paid.");
+            return false;
+        }
+
+        String userId = fine.getUserId();
+        String loanId = fine.getLoanId();
+
+        // NEW LOGIC: Only check if the specific loan associated with this fine is still active
+        if (loanId != null) {
+            // Get the loan associated with this fine
+            com.library.model.Loan loan = loanService.getLoanRepository().findLoanById(loanId);
+
+            // Check if the loan exists and is still active (not returned)
+            if (loan != null && loan.getReturnDate() == null) {
+                System.out.println("❌ Error: Cannot pay fine for loan " + loanId + " because the item is not returned yet.");
+                System.out.println("Please return the item first before paying the fine.");
                 return false;
             }
         }
@@ -100,7 +238,7 @@ public class FineService {
             }
 
             // Update user's borrowing ability
-            updateUserBorrowingAbility(fine.getUserId());
+            updateUserBorrowingAbility(userId);
 
             if (fine.isPaid()) {
                 System.out.println("✅ Fine " + fineId + " has been fully paid.");
@@ -162,33 +300,33 @@ public class FineService {
             return;
         }
 
-        // Check if user has overdue books (only if loanService is available)
-        boolean hasOverdueBooks = false;
-        if (loanService != null) {
-            hasOverdueBooks = loanService.hasOverdueBooks(userId);
-        }
-
         System.out.println("\n" + "=".repeat(120));
         System.out.println("FINES FOR USER: " + userId + " - " + user.getName());
         System.out.println("Can borrow books: " + (user.canBorrow() ? "YES" : "NO"));
-        if (loanService != null) {
-            System.out.println("Has overdue books: " + (hasOverdueBooks ? "YES - Must return books before paying fines" : "NO"));
-        }
         System.out.println("=".repeat(120));
 
         if (fines.isEmpty()) {
             System.out.println("No fines found for this user.");
         } else {
             for (Fine fine : fines) {
-                System.out.println(fine);
+                // Check if the fine is for a returned item
+                String statusNote = "";
+                if (fine.getLoanId() != null) {
+                    com.library.model.Loan loan = loanService.getLoanRepository().findLoanById(fine.getLoanId());
+                    if (loan != null && loan.getReturnDate() == null) {
+                        statusNote = " (Item not returned)";
+                    } else {
+                        statusNote = " (Item returned)";
+                    }
+                }
+                System.out.println(fine + statusNote);
             }
             double totalUnpaid = getTotalUnpaidAmount(userId);
             System.out.println("\nTOTAL UNPAID: $" + totalUnpaid);
 
-            if (loanService != null && hasOverdueBooks) {
-                System.out.println("❌ User has overdue books. Must return all books before paying fines.");
-            } else if (totalUnpaid > 0) {
-                System.out.println("⚠️ User cannot borrow books until all fines are paid.");
+            if (totalUnpaid > 0) {
+                System.out.println("⚠️ Note: Fines for returned items can be paid immediately.");
+                System.out.println("Fines for unreturned items require returning the item first.");
             } else {
                 System.out.println("✅ All fines are paid. User can borrow books.");
             }
