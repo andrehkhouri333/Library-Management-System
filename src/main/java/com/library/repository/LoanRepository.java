@@ -42,14 +42,14 @@ public class LoanRepository {
 
         // U002 - Emma Johnson has an overdue book
         Loan overdueBookLoan = new Loan("L0001", "U002", "978-0743273565", "BOOK",
-                pastDate, pastDate.plusDays(28), 0.25);
+                pastDate, pastDate.plusDays(28));
         overdueBookLoan.setOverdue(true);
         loans.add(overdueBookLoan);
 
         mediaRepository.updateMediaAvailability("978-0743273565", false);
 
         Loan overdueBookLoan1 = new Loan("L0004", "U002", "978-0141439518", "BOOK",
-                pastDate1, pastDate1.plusDays(28), 0.25);
+                pastDate1, pastDate1.plusDays(28));
         overdueBookLoan1.setOverdue(true);
         loans.add(overdueBookLoan1);
 
@@ -58,7 +58,7 @@ public class LoanRepository {
 
         // U004 - Sarah Davis has an overdue book
         Loan overdueBookLoan2 = new Loan("L0002", "U004", "978-0061120084", "BOOK",
-                pastDate2, pastDate2.plusDays(28), 0.25);
+                pastDate2, pastDate2.plusDays(28));
         overdueBookLoan2.setOverdue(true);
         loans.add(overdueBookLoan2);
 
@@ -67,7 +67,7 @@ public class LoanRepository {
 
         // U001 - John Smith has an overdue CD (3 days overdue)
         Loan overdueCDLoan = new Loan("L0003", "U001", "CD-001", "CD",
-                pastDate3, pastDate3.plusDays(7), 0.50);
+                pastDate3, pastDate3.plusDays(7));
         overdueCDLoan.setOverdue(true);
         loans.add(overdueCDLoan);
 
@@ -83,16 +83,15 @@ public class LoanRepository {
      * @param mediaId the media identifier
      * @param mediaType the media type
      * @param borrowDate the borrow date
-     * @param dailyFineRate the daily fine rate for this media
      * @return the created loan
      */
     public Loan createLoan(String userId, String mediaId, String mediaType,
-                           LocalDate borrowDate, double dailyFineRate) {
+                           LocalDate borrowDate) {
         int loanPeriod = getLoanPeriodForMediaType(mediaType);
         LocalDate dueDate = borrowDate.plusDays(loanPeriod);
         String loanId = "L" + String.format("%04d", loanCounter++);
 
-        Loan newLoan = new Loan(loanId, userId, mediaId, mediaType, borrowDate, dueDate, dailyFineRate);
+        Loan newLoan = new Loan(loanId, userId, mediaId, mediaType, borrowDate, dueDate);
         loans.add(newLoan);
 
         // Mark the media as unavailable when loan is created
@@ -118,14 +117,14 @@ public class LoanRepository {
      * Creates a loan for a book (convenience method)
      */
     public Loan createBookLoan(String userId, String bookIsbn, LocalDate borrowDate) {
-        return createLoan(userId, bookIsbn, "BOOK", borrowDate, 0.25);
+        return createLoan(userId, bookIsbn, "BOOK", borrowDate);
     }
 
     /**
      * Creates a loan for a CD (convenience method)
      */
     public Loan createCDLoan(String userId, String cdCatalogNumber, LocalDate borrowDate) {
-        return createLoan(userId, cdCatalogNumber, "CD", borrowDate, 0.50);
+        return createLoan(userId, cdCatalogNumber, "CD", borrowDate);
     }
 
     public List<Loan> findLoansByUser(String userId) {
@@ -210,7 +209,7 @@ public class LoanRepository {
         return loans.stream()
                 .filter(loan -> loan.getUserId().equals(userId))
                 .filter(loan -> loan.getReturnDate() == null)
-                .mapToDouble(loan -> loan.calculateFine(currentDate))
+                .mapToDouble(loan -> loan.calculateFlatFine())
                 .sum();
     }
 
@@ -405,7 +404,7 @@ public class LoanRepository {
                     return loan.isOverdue() && loan.getReturnDate() == null;
                 })
                 .forEach(loan -> {
-                    double fine = loan.calculateFine(currentDate);
+                    double fine = loan.calculateFlatFine();  // Changed to calculateFlatFine()
                     summary.addOverdueItem(loan.getMediaType(), loan.getMediaId(), fine, loan.getLoanId());
                 });
 

@@ -8,12 +8,10 @@ package com.library.strategy;
 public class CDFineStrategy implements FineStrategy {
     private static final String MEDIA_TYPE = "CD";
     private static final double FLAT_FINE = 20.00; // $20 flat fine for CDs
-    private static final double DAILY_FINE_RATE = 0.50; // $0.50 per day
 
     @Override
     public double calculateFine(int overdueDays) {
-        // CDs can use either flat fine or daily rate
-        // For now, using flat fine as per requirements
+        // Always return flat fine - no daily calculation
         return FLAT_FINE;
     }
 

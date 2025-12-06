@@ -21,7 +21,6 @@ class CDTest {
         assertEquals(12, cd.getTrackCount());
         assertEquals("CD", cd.getMediaType());
         assertEquals(7, cd.getLoanPeriodDays());
-        assertEquals(0.50, cd.getDailyFineRate(), 0.001);
         assertTrue(cd.isAvailable());
     }
 

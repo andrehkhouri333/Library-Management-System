@@ -8,7 +8,6 @@ package com.library.model;
 public class BorrowingRules {
     private int maxBooksPerUser;
     private int loanPeriodDays;
-    private double dailyFineRate;
     private boolean restrictBorrowingForOverdue;
     private boolean restrictBorrowingForUnpaidFines;
 
@@ -16,7 +15,6 @@ public class BorrowingRules {
         // Default borrowing rules
         this.maxBooksPerUser = 5;
         this.loanPeriodDays = 28;
-        this.dailyFineRate = 0.25; // $0.25 per day
         this.restrictBorrowingForOverdue = true;
         this.restrictBorrowingForUnpaidFines = true;
     }
@@ -28,8 +26,7 @@ public class BorrowingRules {
     public int getLoanPeriodDays() { return loanPeriodDays; }
     public void setLoanPeriodDays(int loanPeriodDays) { this.loanPeriodDays = loanPeriodDays; }
 
-    public double getDailyFineRate() { return dailyFineRate; }
-    public void setDailyFineRate(double dailyFineRate) { this.dailyFineRate = dailyFineRate; }
+    // Remove getDailyFineRate() and setDailyFineRate()
 
     public boolean isRestrictBorrowingForOverdue() { return restrictBorrowingForOverdue; }
     public void setRestrictBorrowingForOverdue(boolean restrictBorrowingForOverdue) {
@@ -41,20 +38,13 @@ public class BorrowingRules {
         this.restrictBorrowingForUnpaidFines = restrictBorrowingForUnpaidFines;
     }
 
-    /**
-     * Calculates fine for overdue days
-     * @param overdueDays number of days overdue
-     * @return calculated fine amount
-     */
-    public double calculateFine(int overdueDays) {
-        return overdueDays * dailyFineRate;
-    }
+    // Remove calculateFine() method since we're using flat fines via Strategy Pattern
 
     @Override
     public String toString() {
-        return String.format("Max Books Per User: %d | Loan Period: %d days | Daily Fine Rate: $%.2f | " +
+        return String.format("Max Books Per User: %d | Loan Period: %d days | " +
                         "Restrict for Overdue: %s | Restrict for Unpaid Fines: %s",
-                maxBooksPerUser, loanPeriodDays, dailyFineRate,
+                maxBooksPerUser, loanPeriodDays,
                 restrictBorrowingForOverdue ? "Yes" : "No",
                 restrictBorrowingForUnpaidFines ? "Yes" : "No");
     }

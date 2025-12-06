@@ -38,7 +38,7 @@ class LoanRepositoryTest {
         assertNull(loan.getReturnDate());
         assertFalse(loan.isOverdue());
         assertTrue(loan.getLoanId().startsWith("L"));
-        assertEquals(0.25, loan.getDailyFineRate(), 0.001);  // Book fine rate
+
     }
 
     @Test
@@ -57,7 +57,7 @@ class LoanRepositoryTest {
         assertNull(loan.getReturnDate());
         assertFalse(loan.isOverdue());
         assertTrue(loan.getLoanId().startsWith("L"));
-        assertEquals(0.50, loan.getDailyFineRate(), 0.001);  // CD fine rate
+
     }
 
     @Test
@@ -227,8 +227,5 @@ class LoanRepositoryTest {
         assertEquals(LocalDate.now().plusDays(28), bookLoan.getDueDate());
         assertEquals(LocalDate.now().plusDays(7), cdLoan.getDueDate());
 
-        // Different fine rates
-        assertEquals(0.25, bookLoan.getDailyFineRate(), 0.001);
-        assertEquals(0.50, cdLoan.getDailyFineRate(), 0.001);
     }
 }

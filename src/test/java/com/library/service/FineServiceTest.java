@@ -149,7 +149,7 @@ class FineServiceTest {
     @Test
     void testCompleteFineAndReturnFlow() {
         // Use our clean test user
-        String userId = "TEST001";
+        String userId = "U005"; // David Wilson - should be clean in sample data
 
         // Make sure user can borrow
         User user = userRepository.findUserById(userId);
@@ -185,9 +185,14 @@ class FineServiceTest {
         boolean returnSuccess = loanService.returnBook(loan.getLoanId(), LocalDate.now());
         assertTrue(returnSuccess, "Loan should be returned successfully");
 
-        // Step 3: Check if fine was applied
+        // Step 3: Check if fine was applied (flat fine of $10 for books)
         List<Fine> fines = fineService.getUserFines(userId);
         assertFalse(fines.isEmpty(), "Fine should be applied for overdue return");
+
+        if (!fines.isEmpty()) {
+            Fine fine = fines.get(0);
+            assertEquals(10.00, fine.getAmount(), 0.001, "Book should have $10 flat fine");
+        }
 
         // Step 4: Pay the fine
         if (!fines.isEmpty()) {

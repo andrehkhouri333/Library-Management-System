@@ -12,17 +12,15 @@ public abstract class BaseMedia implements Media {
     private boolean available;
     private final String mediaType;
     private final int loanPeriodDays;
-    private final double dailyFineRate;
 
     public BaseMedia(String title, String author, String identifier,
-                     String mediaType, int loanPeriodDays, double dailyFineRate) {
+                     String mediaType, int loanPeriodDays) {
         this.title = title;
         this.author = author;
         this.identifier = identifier;
         this.available = true;
         this.mediaType = mediaType;
         this.loanPeriodDays = loanPeriodDays;
-        this.dailyFineRate = dailyFineRate;
     }
 
     @Override
@@ -46,8 +44,7 @@ public abstract class BaseMedia implements Media {
     @Override
     public int getLoanPeriodDays() { return loanPeriodDays; }
 
-    @Override
-    public double getDailyFineRate() { return dailyFineRate; }
+    // Remove getDailyFineRate() method completely
 
     // Add setters for the fields
     public void setTitle(String title) { this.title = title; }

@@ -8,7 +8,6 @@ package com.library.model;
 public class CD extends BaseMedia {
     private static final String MEDIA_TYPE = "CD";
     private static final int LOAN_PERIOD_DAYS = 7;
-    private static final double DAILY_FINE_RATE = 0.50; // $0.50 per day for overdue
     private static final double OVERDUE_FINE = 20.00; // $20 flat fine for overdue CD
 
     private String genre;
@@ -23,7 +22,7 @@ public class CD extends BaseMedia {
      * @param trackCount the number of tracks on the CD
      */
     public CD(String title, String artist, String catalogNumber, String genre, int trackCount) {
-        super(title, artist, catalogNumber, MEDIA_TYPE, LOAN_PERIOD_DAYS, DAILY_FINE_RATE);
+        super(title, artist, catalogNumber, MEDIA_TYPE, LOAN_PERIOD_DAYS);
         this.genre = genre;
         this.trackCount = trackCount;
     }

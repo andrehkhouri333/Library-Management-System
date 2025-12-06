@@ -13,5 +13,5 @@ public interface Media {
     void setAvailable(boolean available);
     String getMediaType();
     int getLoanPeriodDays();
-    double getDailyFineRate();
+    // getDailyFineRate() REMOVED - Using flat fines via Strategy Pattern
 }

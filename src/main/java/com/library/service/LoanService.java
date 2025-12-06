@@ -157,15 +157,6 @@ public class LoanService {
     }
 
     /**
-     * Check if a fine already exists for a specific loan
-     */
-    private boolean checkIfFineExistsForLoan(String loanId) {
-        // This would need a method in FineRepository to check by loan ID
-        // For now, we'll assume no fine exists
-        return false;
-    }
-
-    /**
      * Borrow a book
      */
     public Loan borrowBook(String userId, String bookIsbn, LocalDate borrowDate) {
@@ -230,8 +221,14 @@ public class LoanService {
             return null;
         }
 
-        // Create loan with appropriate fine rate
-        Loan loan = loanRepository.createLoan(userId, mediaId, mediaType, borrowDate, media.getDailyFineRate());
+        // Create loan
+        Loan loan;
+        if ("BOOK".equals(mediaType)) {
+            loan = loanRepository.createBookLoan(userId, mediaId, borrowDate);
+        } else {
+            loan = loanRepository.createCDLoan(userId, mediaId, borrowDate);
+        }
+
         if (loan != null) {
             user.addLoan(loan.getLoanId());
             userRepository.updateUser(user);
@@ -239,7 +236,6 @@ public class LoanService {
             String mediaDescription = mediaType.equals("BOOK") ? "Book" : "CD";
             System.out.println("✅ " + mediaDescription + " borrowed successfully. Due date: " + loan.getDueDate());
             System.out.println("Loan period: " + media.getLoanPeriodDays() + " days");
-            System.out.println("Fine rate: $" + media.getDailyFineRate() + " per day if overdue");
         }
 
         return loan;

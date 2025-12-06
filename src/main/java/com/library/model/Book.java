@@ -8,7 +8,6 @@ package com.library.model;
 public class Book extends BaseMedia {
     private static final String MEDIA_TYPE = "BOOK";
     private static final int LOAN_PERIOD_DAYS = 28;
-    private static final double DAILY_FINE_RATE = 0.25; // $0.25 per day (10 NIS ≈ $2.50 for 10 days)
     private static final double OVERDUE_FINE = 10.00; // $10 flat fine for overdue book
 
     /**
@@ -18,7 +17,7 @@ public class Book extends BaseMedia {
      * @param isbn the ISBN of the book
      */
     public Book(String title, String author, String isbn) {
-        super(title, author, isbn, MEDIA_TYPE, LOAN_PERIOD_DAYS, DAILY_FINE_RATE);
+        super(title, author, isbn, MEDIA_TYPE, LOAN_PERIOD_DAYS);
     }
 
     // Convenience getter for ISBN (alias for getIdentifier())

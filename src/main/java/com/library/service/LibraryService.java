@@ -61,7 +61,7 @@ public class LibraryService {
                 fineService.getFineRepository());
 
         EmailService emailService = new EmailService();
-        this.reminderService = new ReminderService(emailService, loanRepository, userRepository);
+        this.reminderService = new ReminderService(emailService, loanRepository, userRepository, true);
 
         this.scanner = new Scanner(System.in);
     }

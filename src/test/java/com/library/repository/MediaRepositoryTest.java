@@ -42,7 +42,7 @@ class MediaRepositoryTest {
         for (Book book : books) {
             assertEquals("BOOK", book.getMediaType());
             assertEquals(28, book.getLoanPeriodDays());
-            assertEquals(0.25, book.getDailyFineRate(), 0.001);
+
         }
     }
 
@@ -54,7 +54,7 @@ class MediaRepositoryTest {
         for (CD cd : cds) {
             assertEquals("CD", cd.getMediaType());
             assertEquals(7, cd.getLoanPeriodDays());
-            assertEquals(0.50, cd.getDailyFineRate(), 0.001);
+
         }
     }
 
