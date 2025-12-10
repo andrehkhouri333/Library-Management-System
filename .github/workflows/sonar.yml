@@ -41,3 +41,5 @@ jobs:
         run: mvn -B verify sonar:sonar \
           -Dsonar.projectKey=andrehkhouri333_Library-Management-System \
           -Dsonar.organization=andrehkhouri333
+          -Dsonar.host.url=https://sonarcloud.io
+
