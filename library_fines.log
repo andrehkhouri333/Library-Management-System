@@ -881,3 +881,592 @@
 [2025-12-09T00:16:16.7429215] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
 [2025-12-09T00:16:16.7439198] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
 [2025-12-09T00:16:16.7444304] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-09T19:29:05.5269303] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-09T19:29:05.5565328] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-09T19:29:05.5757239] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:29:05.5787538] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T19:29:05.6207797] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-09T19:29:05.6455042] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-09T19:29:05.6548803] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-09T19:29:05.9062209] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-09T19:29:05.9778099] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-09T19:29:05.9798273] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:29:05.9818476] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-09T19:29:05.9838504] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-09T19:29:05.9939697] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-09T19:29:06.0391256] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T19:29:06.0406356] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:29:06.0416587] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T19:29:06.1270299] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T19:29:06.1295547] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:29:06.1305701] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T19:29:06.1436756] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T19:29:06.1441868] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:29:06.1456953] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T19:29:06.1507558] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-09T19:29:06.1557918] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-09T19:29:06.1624318] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-09T19:29:06.2440525] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-09T19:29:06.2455911] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:29:06.2476088] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T19:29:06.2640159] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T19:29:06.2655735] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:29:06.2665874] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T19:29:06.2756766] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-09T19:29:06.3061491] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-09T19:29:06.3255291] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-09T19:29:06.3842538] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-09T19:29:06.3867781] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:29:06.3877761] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-09T19:41:31.8108997] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-09T19:41:31.8639018] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-09T19:41:31.8800512] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:41:31.899524] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T19:41:32.0016222] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-09T19:41:32.1317381] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-09T19:41:32.1476799] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-09T19:41:32.444015] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-09T19:41:32.4793726] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-09T19:41:32.4819102] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:41:32.4839112] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-09T19:41:32.4869541] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-09T19:41:32.5590619] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-09T19:41:32.5761871] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T19:41:32.5776977] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:41:32.5792143] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T19:41:32.6570723] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T19:41:32.6580655] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:41:32.6615944] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T19:41:32.6982962] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T19:41:32.7038744] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:41:32.7089332] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T19:41:32.7125052] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-09T19:41:32.7190497] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-09T19:41:32.7395672] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-09T19:41:32.7629236] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-09T19:41:32.7659484] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:41:32.7756675] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T19:41:32.8241014] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T19:41:32.8260228] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:41:32.827442] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T19:41:32.8444414] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-09T19:41:32.8662902] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-09T19:41:32.8790641] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-09T19:41:32.8919447] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-09T19:41:32.8929571] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T19:41:32.8944685] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-09T20:43:03.8523828] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-09T20:43:03.8685061] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-09T20:43:03.876044] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:43:03.877553] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:43:03.9443224] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-09T20:43:04.0002266] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-09T20:43:04.0219835] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-09T20:43:04.1435521] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-09T20:43:04.1655836] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-09T20:43:04.172674] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:43:04.1746724] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-09T20:43:04.1761842] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-09T20:43:04.2153464] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-09T20:43:04.2360293] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T20:43:04.2401152] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:43:04.2424558] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T20:43:04.3106136] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T20:43:04.3257743] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:43:04.3281792] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T20:43:04.3347424] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T20:43:04.3362468] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:43:04.3407794] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:43:04.3835443] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-09T20:43:04.4018687] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-09T20:43:04.4725821] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-09T20:43:04.4958166] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-09T20:43:04.4968343] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:43:04.4983492] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:43:04.5246915] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T20:43:04.5262077] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:43:04.5262077] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:43:04.5306389] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-09T20:43:04.5326587] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-09T20:43:04.5656935] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-09T20:43:04.5976188] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-09T20:43:04.5986382] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:43:04.5996523] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-09T20:45:09.0438542] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-09T20:45:09.0625757] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-09T20:45:09.0670978] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:45:09.0706675] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:45:09.0934764] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-09T20:45:09.1237673] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-09T20:45:09.1298392] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-09T20:45:09.2002911] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-09T20:45:09.228802] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-09T20:45:09.2298155] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:45:09.230817] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-09T20:45:09.2319062] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-09T20:45:09.2430769] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-09T20:45:09.2521286] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T20:45:09.2571682] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:45:09.2587237] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T20:45:09.3115658] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T20:45:09.3125654] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:45:09.3135663] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T20:45:09.3762496] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T20:45:09.3787703] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:45:09.3787703] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:45:09.3817983] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-09T20:45:09.3847942] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-09T20:45:09.4099773] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-09T20:45:09.455963] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-09T20:45:09.4584926] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:45:09.4605078] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:45:09.4816573] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T20:45:09.4846579] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:45:09.4856628] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:45:09.5018706] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-09T20:45:09.5038689] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-09T20:45:09.5094223] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-09T20:45:09.5484718] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-09T20:45:09.5504914] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:45:09.5504914] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-09T20:50:04.493398] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-09T20:50:04.5261762] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-09T20:50:04.5443928] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:50:04.5512474] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:50:04.6199086] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-09T20:50:04.6758571] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-09T20:50:04.6866402] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-09T20:50:04.7735145] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-09T20:50:04.8021423] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-09T20:50:04.8041418] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:50:04.8084377] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-09T20:50:04.8094533] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-09T20:50:04.8190332] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-09T20:50:04.8286332] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T20:50:04.8306488] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:50:04.8316621] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T20:50:04.8698879] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-09T20:50:04.8720522] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:50:04.8720522] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-09T20:50:04.878358] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T20:50:04.8798804] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:50:04.8821581] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:50:04.8845302] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-09T20:50:04.8922763] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-09T20:50:04.9025776] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-09T20:50:04.9143343] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-09T20:50:04.9158425] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:50:04.9168532] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:50:04.9268996] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-09T20:50:04.9284135] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:50:04.9314402] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-09T20:50:04.9354391] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-09T20:50:04.9405059] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-09T20:50:04.9440286] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-09T20:50:04.9535899] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-09T20:50:04.9545921] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-09T20:50:04.9566217] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:11:27.9980064] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:11:28.0452442] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:11:28.0531897] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:11:28.0694687] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:11:28.1439616] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:11:28.2156697] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:11:28.2244895] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:11:28.3789629] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-10T21:11:28.41967] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:11:28.4221907] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:11:28.4232028] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:11:28.4247087] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:11:28.4566038] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:11:28.4773534] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:11:28.4798252] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:11:28.4813428] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:11:28.556351] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:11:28.5577336] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:11:28.5587507] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:11:28.5721795] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:11:28.5731801] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:11:28.5751231] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:11:28.5990234] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:11:28.6101831] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:11:28.6240123] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:11:28.696523] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:11:28.698769] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:11:28.6999658] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:11:28.7572868] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:11:28.7582825] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:11:28.7613898] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:11:28.7869512] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:11:28.7897344] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:11:28.7964029] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:11:28.8122078] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:11:28.8122078] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:11:28.818125] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:18:23.4210861] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:18:23.4428934] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:18:23.4484564] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:18:23.4514553] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:18:23.4934372] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:18:23.5225912] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:18:23.5412381] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:18:23.7271505] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-10T21:18:23.7583483] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:18:23.759349] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:18:23.768168] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:18:23.7742329] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:18:23.7967442] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:18:23.8047943] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:18:23.8195778] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:18:23.8241594] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:18:23.8621177] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:18:23.8646682] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:18:23.8656803] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:18:23.891997] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:18:23.8955719] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:18:23.8965812] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:18:23.8995817] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:18:23.9083732] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:18:23.9289506] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:18:23.9744629] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:18:23.9982011] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:18:24.0682575] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:18:24.1582223] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:18:24.1602204] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:18:24.1663813] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:18:24.1897267] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:18:24.1997538] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:18:24.211135] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:18:24.2445481] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:18:24.2485762] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:18:24.2495776] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:26:19.8785482] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:26:19.9083739] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:26:19.9169411] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:26:19.9189536] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:26:19.9995284] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:26:20.0780533] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:26:20.0911591] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:26:20.4028963] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-10T21:26:20.4361804] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:26:20.4371906] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:26:20.4381904] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:26:20.4391921] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:26:20.4880621] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:26:20.5143181] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:26:20.518479] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:26:20.5220071] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:26:20.5911003] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:26:20.5911003] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:26:20.5926169] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:26:20.6176169] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:26:20.6237003] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:26:20.6294321] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:26:20.6414999] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:26:20.6551354] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:26:20.7052994] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:26:20.7469119] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:26:20.7499144] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:26:20.7524065] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:26:20.7944958] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:26:20.7965095] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:26:20.798522] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:26:20.860029] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:26:20.8732892] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:26:20.9199867] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:26:21.051179] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:26:21.0604502] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:26:21.0685285] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:30:06.2141656] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:30:06.2464244] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:30:06.2511058] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:30:06.2531202] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:30:06.3085301] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:30:06.3497434] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:30:06.373614] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:30:06.6019821] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-10T21:30:06.6349052] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:30:06.6369304] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:30:06.6414449] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:30:06.6445036] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:30:06.6711545] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:30:06.68023] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:30:06.6852695] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:30:06.6872811] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:30:06.7366782] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:30:06.7749183] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:30:06.7774221] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:30:06.8044422] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:30:06.8066267] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:30:06.8086396] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:30:06.8213246] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:30:06.8465947] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:30:06.8614099] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:30:06.8928023] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:30:07.0799872] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:30:07.1369221] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:30:07.2072991] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:30:07.211809] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:30:07.2148487] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:30:07.2673542] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:30:07.2743238] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:30:07.3298636] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:30:07.4969406] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:30:07.5195964] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:30:07.5211152] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:46:03.5059698] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:46:03.5560147] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:46:03.5611069] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:46:03.5701344] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:46:03.6510999] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:46:03.6847245] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:46:03.6993272] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:46:03.8893125] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-10T21:46:03.9260497] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:46:03.9280565] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:46:03.9295558] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:46:03.9310661] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:46:03.9648575] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:46:04.0194244] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:46:04.0209337] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:46:04.0234845] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:46:04.0677159] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:46:04.0732728] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:46:04.0752714] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:46:04.1210302] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:46:04.1235705] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:46:04.1245707] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:46:04.1396915] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:46:04.17105] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:46:04.2144951] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:46:04.2324887] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:46:04.2424818] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:46:04.2454927] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:46:04.2729905] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:46:04.2739947] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:46:04.2749929] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:46:04.2850249] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:46:04.2875289] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:46:04.3002327] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:46:04.3499379] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:46:04.3519887] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:46:04.3529865] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:48:51.1532257] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:48:51.1937695] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:48:51.1991013] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:48:51.2011555] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:48:51.2688688] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:48:51.3045652] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:48:51.3151243] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:48:51.4859754] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-10T21:48:51.5127666] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:48:51.513776] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:48:51.5147896] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:48:51.515789] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:48:51.546499] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:48:51.5579912] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:48:51.5594939] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:48:51.5680353] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:48:51.5966642] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:48:51.6375252] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:48:51.6500837] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:48:51.6748857] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:48:51.6763476] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:48:51.6773716] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:48:51.6891461] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:48:51.6977715] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:48:51.7024905] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:48:51.7455026] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:48:51.7475053] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:48:51.7500248] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:48:51.7812206] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:48:51.7984548] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:48:51.8009979] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:48:51.8109967] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:48:51.822179] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:48:51.8559143] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:48:51.8862978] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:48:51.8872933] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:48:51.8907012] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:53:31.3060256] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:53:31.3389463] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:53:31.3530057] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:53:31.3565703] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:53:31.4889646] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:53:31.527106] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:53:31.5512233] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:53:32.1649703] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:53:32.1669697] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:53:32.1740707] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:53:32.1750702] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:53:32.1937346] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:53:32.2324525] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:53:32.2781858] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:53:32.2839357] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:53:32.4792265] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:53:32.5322499] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:53:32.53325] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:53:32.5708491] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:53:32.57186] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:53:32.573873] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:53:32.577347] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:53:32.5874293] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:53:32.6152454] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:53:32.6841327] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:53:32.6861331] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:53:32.6876151] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:53:32.7138042] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:53:32.7164877] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:53:32.7190012] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:53:32.7301258] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:53:32.744448] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:53:32.7771714] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:53:32.846375] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:53:32.8481812] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:53:32.8557898] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:55:07.4139532] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:55:07.4661203] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:55:07.484782] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:55:07.4873065] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:55:07.6653432] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:55:07.7781471] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:55:07.7882227] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:55:08.0931816] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:55:08.1158703] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:55:08.1202681] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:55:08.1245712] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:55:08.1396986] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:55:08.1621659] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:55:08.1792469] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:55:08.1802632] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:55:08.3993054] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:55:08.4038333] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:55:08.4038333] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:55:08.4512274] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:55:08.4597552] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:55:08.461264] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:55:08.4682906] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:55:08.4819436] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:55:08.510011] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:55:08.556603] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:55:08.5667826] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:55:08.5718141] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:55:08.6161592] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:55:08.6175608] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:55:08.6190717] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:55:08.6261163] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:55:08.6300539] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:55:08.6447126] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:55:08.6862626] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:55:08.6867714] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:55:08.6878466] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T21:58:01.3172028] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T21:58:01.3693937] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T21:58:01.390974] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:58:01.3945129] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:58:01.5522514] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T21:58:01.6171949] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T21:58:01.6371093] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T21:58:02.0835713] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T21:58:02.0855865] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:58:02.0865885] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T21:58:02.0890964] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T21:58:02.1113991] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T21:58:02.1562335] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:58:02.1612294] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:58:02.1665058] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:58:02.3839738] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T21:58:02.3859861] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:58:02.3869855] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T21:58:02.422682] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:58:02.4246933] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:58:02.4339156] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:58:02.4443105] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T21:58:02.4553854] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T21:58:02.4783359] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T21:58:02.5412672] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T21:58:02.545839] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:58:02.5927385] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:58:02.6793592] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T21:58:02.7159579] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:58:02.7179599] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T21:58:02.7657943] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T21:58:02.8511138] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T21:58:02.8873116] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T21:58:02.9311892] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T21:58:02.9332094] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T21:58:02.9342258] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T22:01:58.5278691] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T22:01:58.5673692] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T22:01:58.5718194] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:01:58.5738323] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T22:01:58.637628] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T22:01:58.6763165] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T22:01:58.6940671] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T22:01:58.9140664] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-10T22:01:58.9409636] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T22:01:58.9456287] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:01:58.9491387] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T22:01:58.9526808] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T22:01:59.02804] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T22:01:59.0534474] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T22:01:59.0574669] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:01:59.0635308] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T22:01:59.1273771] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T22:01:59.1273771] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:01:59.1288903] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T22:01:59.1731586] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T22:01:59.1746691] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:01:59.175681] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T22:01:59.1953899] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T22:01:59.2053433] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T22:01:59.2471619] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T22:01:59.3041122] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T22:01:59.304623] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:01:59.3068569] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T22:01:59.3565841] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T22:01:59.3631585] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:01:59.3651664] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T22:01:59.3795063] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T22:01:59.3847245] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T22:01:59.4033116] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T22:01:59.4391761] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T22:01:59.4412226] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:01:59.4437522] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
+[2025-12-10T22:03:27.2911462] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test duplicate observer
+[2025-12-10T22:03:27.3212251] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test borrowing restoration
+[2025-12-10T22:03:27.3256985] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:03:27.3276979] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T22:03:27.3977113] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Test observer attachment
+[2025-12-10T22:03:27.4690877] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test notification
+[2025-12-10T22:03:27.4796879] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Fine without loan
+[2025-12-10T22:03:27.9381322] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test email
+[2025-12-10T22:03:27.9650079] FINE_APPLIED - U001 - A fine of $10.00 has been applied to your account for: Paid fine
+[2025-12-10T22:03:27.966008] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:03:27.9730545] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $10.00
+[2025-12-10T22:03:27.9750674] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Unpaid fine
+[2025-12-10T22:03:28.0209199] FINE_APPLIED - U001 - A fine of $30.00 has been applied to your account for: Test fine
+[2025-12-10T22:03:28.0390586] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T22:03:28.0410759] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:03:28.0433886] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T22:03:28.1073128] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test fine
+[2025-12-10T22:03:28.1091812] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:03:28.1101922] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $20.00
+[2025-12-10T22:03:28.1211676] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T22:03:28.1227212] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:03:28.1237345] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T22:03:28.127736] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test file logging
+[2025-12-10T22:03:28.1698825] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine
+[2025-12-10T22:03:28.1857488] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test console logging
+[2025-12-10T22:03:28.2689024] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test payment notification
+[2025-12-10T22:03:28.270953] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:03:28.2729652] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T22:03:28.3253564] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test fine without loan
+[2025-12-10T22:03:28.3292133] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:03:28.3302251] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $15.00
+[2025-12-10T22:03:28.3382611] FINE_APPLIED - U001 - A fine of $20.00 has been applied to your account for: Test partial payment
+[2025-12-10T22:03:28.3454109] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Fine with no loan service
+[2025-12-10T22:03:28.3551075] FINE_APPLIED - U001 - A fine of $15.00 has been applied to your account for: Test observer
+[2025-12-10T22:03:28.3896102] FINE_APPLIED - U001 - A fine of $25.00 has been applied to your account for: Test fine
+[2025-12-10T22:03:28.3921355] BORROWING_RESTORED - U001 - All fines have been paid. Borrowing privileges restored.
+[2025-12-10T22:03:28.3926449] FINE_PAID - U001 - Fine F0004 has been fully paid. Amount: $25.00
