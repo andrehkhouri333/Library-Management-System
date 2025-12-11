@@ -14,6 +14,11 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!-- SonarCloud Configuration -->
+        <sonar.organization>andreh-org</sonar.organization>
+        <sonar.projectKey>andreh-org_Library-Management-System</sonar.projectKey>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
         <!-- Needed by JaCoCo + Sonar -->
         <argLine></argLine>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
@@ -62,7 +67,6 @@
 
     <build>
         <plugins>
-
             <!-- Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -85,9 +89,7 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
-
                 <executions>
-
                     <execution>
                         <id>prepare-agent</id>
                         <goals>
@@ -97,7 +99,6 @@
                             <destFile>${project.build.directory}/jacoco.exec</destFile>
                         </configuration>
                     </execution>
-
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
@@ -113,7 +114,6 @@
                             </outputDirectory>
                         </configuration>
                     </execution>
-
                 </executions>
             </plugin>
 
@@ -123,7 +123,6 @@
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.10.0.2594</version>
             </plugin>
-
         </plugins>
     </build>
 
