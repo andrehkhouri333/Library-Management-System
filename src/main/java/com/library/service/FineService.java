@@ -23,6 +23,16 @@ public class FineService {
     private LoanSubject notificationSubject; // Observer Pattern subject
 
     /**
+     * Inner class to hold fine calculation results
+     */
+    private static class FineBreakdown {
+        double bookFines = 0;
+        double cdFines = 0;
+        int bookCount = 0;
+        int cdCount = 0;
+    }
+
+    /**
      * Gets fine breakdown by media type using Strategy Pattern
      * @param userId the user ID
      * @return formatted string with fine breakdown
@@ -34,50 +44,79 @@ public class FineService {
             return "✅ No fines found.";
         }
 
-        StringBuilder breakdown = new StringBuilder();
-        breakdown.append("\n📊 FINE BREAKDOWN BY MEDIA TYPE (Using Strategy Pattern):");
-        breakdown.append("\n").append("-".repeat(50));
+        FineBreakdown breakdown = calculateFineBreakdown(fines);
+        return formatFineBreakdown(userId, breakdown);
+    }
 
-        // Separate fines by media type using Strategy Pattern
-        double bookFines = 0;
-        double cdsFines = 0;
-        int bookCount = 0;
-        int cdCount = 0;
+    /**
+     * Calculate fine breakdown by media type
+     */
+    private FineBreakdown calculateFineBreakdown(List<Fine> fines) {
+        FineBreakdown breakdown = new FineBreakdown();
 
         for (Fine fine : fines) {
-            if (!fine.isPaid()) {
-                // Determine media type from loan
-                if (loanService != null && fine.getLoanId() != null) {
-                    com.library.model.Loan loan = loanService.getLoanRepository().findLoanById(fine.getLoanId());
-                    if (loan != null) {
-                        if ("BOOK".equals(loan.getMediaType())) {
-                            bookFines += fine.getRemainingBalance();
-                            bookCount++;
-                        } else if ("CD".equals(loan.getMediaType())) {
-                            cdsFines += fine.getRemainingBalance();
-                            cdCount++;
-                        }
-                    }
-                }
+            if (fine.isPaid()) {
+                continue;
             }
+
+            processUnpaidFine(fine, breakdown);
         }
 
-        // Show breakdown using Strategy Pattern data
-        if (bookCount > 0) {
-            breakdown.append(String.format("\n📚 BOOK Fines: %d items | Total: $%.2f (Flat fine: $%.2f)",
-                    bookCount, bookFines, fineContext.getFlatFine("BOOK")));
+        return breakdown;
+    }
+
+    /**
+     * Process a single unpaid fine
+     */
+    private void processUnpaidFine(Fine fine, FineBreakdown breakdown) {
+        if (loanService == null || fine.getLoanId() == null) {
+            return;
         }
 
-        if (cdCount > 0) {
-            breakdown.append(String.format("\n💿 CD Fines: %d items | Total: $%.2f (Flat fine: $%.2f)",
-                    cdCount, cdsFines, fineContext.getFlatFine("CD")));
+        com.library.model.Loan loan = loanService.getLoanRepository().findLoanById(fine.getLoanId());
+        if (loan == null) {
+            return;
         }
 
-        double total = bookFines + cdsFines;
-        breakdown.append("\n").append("-".repeat(50));
-        breakdown.append(String.format("\n💰 TOTAL UNPAID FINES: $%.2f", total));
+        updateBreakdownForMediaType(loan.getMediaType(), fine.getRemainingBalance(), breakdown);
+    }
 
-        return breakdown.toString();
+    /**
+     * Update breakdown based on media type
+     */
+    private void updateBreakdownForMediaType(String mediaType, double amount, FineBreakdown breakdown) {
+        if ("BOOK".equals(mediaType)) {
+            breakdown.bookFines += amount;
+            breakdown.bookCount++;
+        } else if ("CD".equals(mediaType)) {
+            breakdown.cdFines += amount;
+            breakdown.cdCount++;
+        }
+    }
+
+    /**
+     * Format fine breakdown as string
+     */
+    private String formatFineBreakdown(String userId, FineBreakdown breakdown) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n📊 FINE BREAKDOWN BY MEDIA TYPE (Using Strategy Pattern):");
+        sb.append("\n").append("-".repeat(50));
+
+        if (breakdown.bookCount > 0) {
+            sb.append(String.format("\n📚 BOOK Fines: %d items | Total: $%.2f (Flat fine: $%.2f)",
+                    breakdown.bookCount, breakdown.bookFines, fineContext.getFlatFine("BOOK")));
+        }
+
+        if (breakdown.cdCount > 0) {
+            sb.append(String.format("\n💿 CD Fines: %d items | Total: $%.2f (Flat fine: $%.2f)",
+                    breakdown.cdCount, breakdown.cdFines, fineContext.getFlatFine("CD")));
+        }
+
+        double total = breakdown.bookFines + breakdown.cdFines;
+        sb.append("\n").append("-".repeat(50));
+        sb.append(String.format("\n💰 TOTAL UNPAID FINES: $%.2f", total));
+
+        return sb.toString();
     }
 
     /**
@@ -185,7 +224,7 @@ public class FineService {
         // Check if fine already exists for this loan
         Fine existingFine = fineRepository.findFineByLoanId(loanId);
         if (existingFine != null) {
-            System.out.println("⚠️ Fine already exists for loan " + loanId + ": " + existingFine.getFineId());
+            System.out.println("⚠ Fine already exists for loan " + loanId + ": " + existingFine.getFineId());
 
             // Update if amount is different OR if fine is paid (shouldn't happen, but just in case)
             if (existingFine.isPaid()) {
@@ -193,7 +232,7 @@ public class FineService {
                 // Continue to create new fine
             } else if (Math.abs(existingFine.getAmount() - fineAmount) > 0.01) {
                 existingFine.setAmount(fineAmount);
-                System.out.println("⚠️ Updated fine amount to $" + fineAmount);
+                System.out.println("⚠ Updated fine amount to $" + fineAmount);
                 return existingFine;
             } else {
                 // Same amount, just return existing fine
@@ -377,7 +416,7 @@ public class FineService {
                         );
                         notificationSubject.notifyObservers(event);
                     } else {
-                        System.out.println("⚠️ User " + userId + " cannot borrow books due to unpaid fines.");
+                        System.out.println("⚠ User " + userId + " cannot borrow books due to unpaid fines.");
                     }
                 }
             }
@@ -549,7 +588,7 @@ public class FineService {
             System.out.println("\n💰 TOTAL UNPAID: $" + String.format("%.2f", totalUnpaid));
 
             if (totalUnpaid > 0) {
-                System.out.println("\n⚠️ Note:");
+                System.out.println("\n⚠ Note:");
                 System.out.println("  • Fines for returned items can be paid immediately.");
                 System.out.println("  • Fines for unreturned items require returning the item first.");
                 System.out.println("  • Total fines must be $0.00 to borrow new items.");
