@@ -13,7 +13,7 @@ public abstract class BaseMedia implements Media {
     private final String mediaType;
     private final int loanPeriodDays;
 
-    public BaseMedia(String title, String author, String identifier,
+    protected BaseMedia(String title, String author, String identifier,
                      String mediaType, int loanPeriodDays) {
         this.title = title;
         this.author = author;
