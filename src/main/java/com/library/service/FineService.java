@@ -33,6 +33,14 @@ public class FineService {
     }
 
     /**
+     * Inner class to hold breakdown summary
+     */
+    private static class BreakdownSummary {
+        double total = 0;
+        int count = 0;
+    }
+
+    /**
      * Gets fine breakdown by media type using Strategy Pattern
      */
     public String getFineBreakdownByMediaType(String userId) {
