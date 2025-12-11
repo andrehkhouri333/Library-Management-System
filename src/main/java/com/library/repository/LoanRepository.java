@@ -284,7 +284,7 @@ public class LoanRepository {
         private void appendActiveLoanDetails(StringBuilder sb, Loan loan) {
             String status = loan.isOverdue() ? "⏰ OVERDUE" : "✅ On Time";
             String mediaType = "BOOK".equals(loan.getMediaType()) ? "📚 BOOK" : "💿 CD";
-            sb.append(String.format("\n   • %s: %-15s | Due: %s | Status: %s",
+            sb.append(String.format("%n   • %s: %-15s | Due: %s | Status: %s",
                     mediaType, loan.getMediaId(), loan.getDueDate(), status));
         }
 
@@ -326,18 +326,18 @@ public class LoanRepository {
             String mediaIcon = "BOOK".equals(loan.getMediaType()) ? "📚" : "💿";
             double fine = getFineForLoan(loan);
             String status = loan.getReturnDate() != null ? " (Returned)" : " (Active)";
-            sb.append(String.format("\n%s Type: %-4s | Media ID: %-15s | Loan: %-8s | Fine: $%.2f%s",
+            sb.append(String.format("%n%s Type: %-4s | Media ID: %-15s | Loan: %-8s | Fine: $%.2f%s",
                     mediaIcon, loan.getMediaType(), loan.getMediaId(), loan.getLoanId(), fine, status));
         }
 
         private void appendFineSummary(StringBuilder sb) {
-            sb.append(String.format("\n💰 TOTAL FINE: $%.2f", getTotalFine()));
+            sb.append(String.format("%n💰 TOTAL FINE: $%.2f", getTotalFine()));
 
             if (activeFinesTotal > 0) {
-                sb.append(String.format("\n   • Active overdue items: $%.2f", activeFinesTotal));
+                sb.append(String.format("%n   • Active overdue items: $%.2f", activeFinesTotal));
             }
             if (returnedFinesTotal > 0) {
-                sb.append(String.format("\n   • Unpaid fines for returned items: $%.2f", returnedFinesTotal));
+                sb.append(String.format("%n   • Unpaid fines for returned items: $%.2f", returnedFinesTotal));
             }
         }
     }
@@ -397,23 +397,23 @@ public class LoanRepository {
             sb.append("\n").append("-".repeat(40));
 
             if (!books.isEmpty()) {
-                sb.append(String.format("\n📚 BOOKS (%d items): $%.2f", books.size(), bookTotal));
+                sb.append(String.format("%n📚 BOOKS (%d items): $%.2f", books.size(), bookTotal));
                 for (OverdueItem item : books) {
-                    sb.append(String.format("\n   • %s (Loan: %s): $%.2f",
+                    sb.append(String.format("%n   • %s (Loan: %s): $%.2f",
                             item.getMediaId(), item.getLoanId(), item.getFine()));
                 }
             }
 
             if (!cds.isEmpty()) {
-                sb.append(String.format("\n💿 CDs (%d items): $%.2f", cds.size(), cdTotal));
+                sb.append(String.format("%n💿 CDs (%d items): $%.2f", cds.size(), cdTotal));
                 for (OverdueItem item : cds) {
-                    sb.append(String.format("\n   • %s (Loan: %s): $%.2f",
+                    sb.append(String.format("%n   • %s (Loan: %s): $%.2f",
                             item.getMediaId(), item.getLoanId(), item.getFine()));
                 }
             }
 
             sb.append("\n").append("-".repeat(40));
-            sb.append(String.format("\n💰 TOTAL FINE: $%.2f", totalFine));
+            sb.append(String.format("%n💰 TOTAL FINE: $%.2f", totalFine));
 
             return sb.toString();
         }
