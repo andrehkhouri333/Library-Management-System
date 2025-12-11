@@ -305,6 +305,26 @@ public class FineService {
      * Pay a fine and notify observers
      */
     public boolean payFine(String fineId, double paymentAmount) {
+        if (!validatePaymentInput(fineId, paymentAmount)) {
+            return false;
+        }
+
+        Fine fine = fineRepository.findFineById(fineId);
+        if (!validateFine(fine, fineId)) {
+            return false;
+        }
+
+        if (!validateLoanStatus(fine.getLoanId())) {
+            return false;
+        }
+
+        return processPayment(fineId, paymentAmount, fine);
+    }
+
+    /**
+     * Validate payment input parameters
+     */
+    private boolean validatePaymentInput(String fineId, double paymentAmount) {
         if (fineId == null || fineId.trim().isEmpty()) {
             System.out.println("❌ Error: Fine ID cannot be empty.");
             return false;
@@ -315,76 +335,105 @@ public class FineService {
             return false;
         }
 
-        Fine fine = fineRepository.findFineById(fineId);
+        return true;
+    }
+
+    /**
+     * Validate fine exists and is not already paid
+     */
+    private boolean validateFine(Fine fine, String fineId) {
         if (fine == null) {
             System.out.println("❌ Error: Fine not found.");
             return false;
         }
 
-        // Check if the fine is already paid
         if (fine.isPaid()) {
             System.out.println("❌ Error: Fine " + fineId + " is already paid.");
             return false;
         }
 
-        String userId = fine.getUserId();
-        String loanId = fine.getLoanId();
+        return true;
+    }
 
-        // NEW LOGIC: Only check if the specific loan associated with this fine is still active
-        if (loanId != null && loanId.trim().length() > 0) {
-            if (loanService == null) {
-                System.out.println("❌ Error: Loan service not available to check loan status.");
-                return false;
-            }
-
-            // Get the loan associated with this fine
-            com.library.model.Loan loan = loanService.getLoanRepository().findLoanById(loanId);
-
-            // Check if the loan exists and is still active (not returned)
-            if (loan != null && loan.getReturnDate() == null) {
-                System.out.println("❌ Error: Cannot pay fine for loan " + loanId + " because the item is not returned yet.");
-                System.out.println("Please return the item first before paying the fine.");
-                return false;
-            }
+    /**
+     * Validate loan status - check if item is returned
+     */
+    private boolean validateLoanStatus(String loanId) {
+        if (loanId == null || loanId.trim().isEmpty()) {
+            return true; // No loan to validate
         }
 
+        if (loanService == null) {
+            System.out.println("❌ Error: Loan service not available to check loan status.");
+            return false;
+        }
+
+        com.library.model.Loan loan = loanService.getLoanRepository().findLoanById(loanId);
+        if (loan != null && loan.getReturnDate() == null) {
+            System.out.println("❌ Error: Cannot pay fine for loan " + loanId + " because the item is not returned yet.");
+            System.out.println("Please return the item first before paying the fine.");
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Process the payment and handle notifications
+     */
+    private boolean processPayment(String fineId, double paymentAmount, Fine fine) {
         Fine.PaymentResult paymentResult = fineRepository.makePayment(fineId, paymentAmount);
-        if (paymentResult.isSuccess()) {
-            // Show payment result message
-            System.out.println("✅ Payment of $" + paymentAmount + " applied to fine " + fineId);
-            System.out.println(paymentResult.getMessage());
-
-            // If there was a refund, show it clearly
-            if (paymentResult.getRefundAmount() > 0) {
-                System.out.println("💰 Refund issued: $" + String.format("%.2f", paymentResult.getRefundAmount()));
-            }
-
-            // Update user's borrowing ability
-            updateUserBorrowingAbility(userId);
-
-            if (fine.isPaid()) {
-                System.out.println("✅ Fine " + fineId + " has been fully paid.");
-
-                // Notify observers about successful payment
-                User user = userRepository.findUserById(userId);
-                if (user != null) {
-                    NotificationEvent event = new NotificationEvent(
-                            user,
-                            "FINE_PAID",
-                            String.format("Fine %s has been fully paid. Amount: $%.2f",
-                                    fineId, fine.getAmount()),
-                            fine
-                    );
-                    notificationSubject.notifyObservers(event);
-                }
-            } else {
-                System.out.println("Remaining balance: $" + fine.getRemainingBalance());
-            }
-
-            return true;
-        } else {
+        
+        if (!paymentResult.isSuccess()) {
             System.out.println("❌ Error: " + paymentResult.getMessage());
             return false;
+        }
+
+        displayPaymentSuccess(paymentAmount, fineId, paymentResult);
+        updateUserBorrowingAbility(fine.getUserId());
+        handlePaymentCompletion(fine, fineId);
+
+        return true;
+    }
+
+    /**
+     * Display payment success messages
+     */
+    private void displayPaymentSuccess(double paymentAmount, String fineId, Fine.PaymentResult paymentResult) {
+        System.out.println("✅ Payment of $" + paymentAmount + " applied to fine " + fineId);
+        System.out.println(paymentResult.getMessage());
+
+        if (paymentResult.getRefundAmount() > 0) {
+            System.out.println("💰 Refund issued: $" + String.format("%.2f", paymentResult.getRefundAmount()));
+        }
+    }
+
+    /**
+     * Handle payment completion and notifications
+     */
+    private void handlePaymentCompletion(Fine fine, String fineId) {
+        if (fine.isPaid()) {
+            System.out.println("✅ Fine " + fineId + " has been fully paid.");
+            notifyPaymentComplete(fine, fineId);
+        } else {
+            System.out.println("Remaining balance: $" + fine.getRemainingBalance());
+        }
+    }
+
+    /**
+     * Notify observers about payment completion
+     */
+    private void notifyPaymentComplete(Fine fine, String fineId) {
+        User user = userRepository.findUserById(fine.getUserId());
+        if (user != null) {
+            NotificationEvent event = new NotificationEvent(
+                    user,
+                    "FINE_PAID",
+                    String.format("Fine %s has been fully paid. Amount: $%.2f",
+                            fineId, fine.getAmount()),
+                    fine
+            );
+            notificationSubject.notifyObservers(event);
         }
     }
 
