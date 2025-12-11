@@ -37,7 +37,7 @@ public class Main {
             logger.info("10. Demo Design Patterns");
             logger.info("11. Admin Login");
             logger.info("12. Exit");
-            System.out.print("Choose an option: ");
+            logger.info("Choose an option: ");
 
             int choice = getIntInput();
 
@@ -89,7 +89,7 @@ public class Main {
         logger.info("1. Strategy Pattern Demo - Fine Calculation");
         logger.info("2. Observer Pattern Demo - Notifications");
         logger.info("3. Back to Main Menu");
-        System.out.print("Choose demo: ");
+        logger.info("Choose demo: ");
 
         int choice = getIntInput();
 
@@ -152,7 +152,7 @@ public class Main {
             logger.info("6. Send Overdue Reminders");
             logger.info("7. User Management");
             logger.info("8. Logout");
-            System.out.print("Choose an option: ");
+            logger.info("Choose an option: ");
 
             int choice = getIntInput();
 
@@ -190,9 +190,9 @@ public class Main {
 
     private static void adminLogin() {
         logger.info("\n=== ADMIN LOGIN ===");
-        System.out.print("Username: ");
+        logger.info("Username: ");
         String username = scanner.nextLine();
-        System.out.print("Password: ");
+        logger.info("Password: ");
         String password = scanner.nextLine();
 
         if (libraryService.getAuthService().login(username, password)) {
