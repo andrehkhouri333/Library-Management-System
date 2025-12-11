@@ -47,7 +47,7 @@ public class BookRepository {
      * @param query the search query
      * @return list of matching books
      */
-    public List<Book> searchBooks(String query) {
+public List<Book> searchBooks(String query) {
         if (query == null) {
             return new ArrayList<>(); // Return empty list for null query
         }
@@ -57,7 +57,7 @@ public class BookRepository {
                 .filter(book -> book.getTitle().toLowerCase().contains(lowerQuery) ||
                         book.getAuthor().toLowerCase().contains(lowerQuery) ||
                         book.getIsbn().toLowerCase().contains(lowerQuery))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
