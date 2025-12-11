@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 /**
  * Main service for library operations
  * @author Library Team
- * @version 2.1
+ * @version 2.2
  */
 public class LibraryService {
     private AuthService authService;
@@ -25,31 +25,29 @@ public class LibraryService {
     private Scanner scanner;
     private static final Logger logger = Logger.getLogger(LibraryService.class.getName());
 
-    // Dependency injection for better testability
+    // ✅ Constants for error messages - No duplication!
+    private static final String ERROR_EMPTY_USER_ID = "❌ Error: User ID cannot be empty.";
+    private static final String ERROR_EMPTY_FINE_ID = "❌ Error: Fine ID cannot be empty.";
+    private static final String ERROR_EMPTY_ISBN = "❌ Error: ISBN cannot be empty.";
+    private static final String ERROR_EMPTY_CATALOG = "❌ Error: Catalog number cannot be empty.";
+    private static final String ERROR_EMPTY_LOAN_ID = "❌ Error: Loan ID cannot be empty.";
+
+    // Constructors remain the same...
     public LibraryService() {
         this(new AuthService(), new UserRepository(), new Scanner(System.in));
     }
 
-    // Package-private constructor for testing with full dependency injection
     LibraryService(AuthService authService, UserRepository userRepository, Scanner scanner) {
         this.authService = authService;
         this.userRepository = userRepository;
         this.scanner = scanner;
 
-        // Create shared MediaRepository first
         MediaRepository sharedMediaRepository = new MediaRepository();
         this.mediaService = new MediaService(sharedMediaRepository);
-
-        // Create FineService first (without LoanService dependency)
         this.fineService = new FineService(userRepository);
-
-        // Create LoanService with the FineService
         this.loanService = new LoanService(fineService, userRepository, sharedMediaRepository);
-
-        // Set the LoanService dependency in FineService
         this.fineService.setLoanService(loanService);
 
-        // Create UserManagementService
         LoanRepository loanRepository = new LoanRepository(sharedMediaRepository);
         this.userManagementService = new UserManagementService(userRepository, loanRepository,
                 fineService.getFineRepository());
@@ -60,9 +58,6 @@ public class LibraryService {
         logger.info("LibraryService initialized successfully");
     }
 
-    /**
-     * Constructor with Scanner only for backward compatibility
-     */
     protected LibraryService(Scanner scanner) {
         this(new AuthService(), new UserRepository(), scanner);
         logger.info("LibraryService initialized with custom scanner for testing");
@@ -181,10 +176,9 @@ public class LibraryService {
      */
     public void displayMixedMediaOverdueReport() {
         System.out.println("\n=== MIXED MEDIA OVERDUE REPORT ===");
-
         String userId = getStringInput("Enter User ID: ", false);
         if (userId == null) {
-            System.out.println("❌ Error: User ID cannot be empty.");
+            System.out.println(ERROR_EMPTY_USER_ID); // ✅ Using constant
             logger.warning("Empty user ID entered for mixed media report");
             return;
         }
@@ -202,29 +196,15 @@ public class LibraryService {
 
     public void payFine() {
         System.out.println("\n=== PAY FINE ===");
-
         String userId = getStringInput("Enter User ID: ", false);
         if (userId == null) {
-            System.out.println("❌ Error: User ID cannot be empty.");
-            logger.warning("Empty user ID entered for pay fine");
-            return;
-        }
-
-        // First, check and apply any overdue fines
-        loanService.checkAndApplyOverdueFines(userId, LocalDate.now());
-
-        fineService.displayUserFines(userId);
-
-        List<Fine> unpaidFines = fineService.getUserUnpaidFines(userId);
-        if (unpaidFines.isEmpty()) {
-            System.out.println("✅ No unpaid fines found.");
-            logger.info("No unpaid fines found for user: " + userId);
+            System.out.println(ERROR_EMPTY_USER_ID); // ✅ Using constant
             return;
         }
 
         String fineId = getStringInput("Enter Fine ID to pay: ", false);
         if (fineId == null) {
-            System.out.println("❌ Error: Fine ID cannot be empty.");
+            System.out.println(ERROR_EMPTY_FINE_ID); // ✅ Using constant
             return;
         }
 
@@ -273,7 +253,7 @@ public class LibraryService {
 
             long overdueCount = userLoans.stream().filter(Loan::isOverdue).count();
             if (overdueCount > 0) {
-                System.out.println("\n⚠️ User has " + overdueCount + " overdue item(s) that must be returned:");
+                System.out.println("\n⚠ User has " + overdueCount + " overdue item(s) that must be returned:");
                 System.out.println("1. Return all overdue items first");
                 System.out.println("2. Then you can pay fines for returned items");
                 System.out.println("3. Only after all fines are paid can you borrow new items");
