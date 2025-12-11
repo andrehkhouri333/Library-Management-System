@@ -1,7 +1,5 @@
 package com.library.observer;
 
-import java.util.List;
-
 /**
  * Subject interface for Observer Pattern
  * Follows Observer Pattern from refactoring.guru
